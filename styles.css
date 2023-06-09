@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#menu {
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+h1 {
+    color: blue;
+}
+
+
+
+.foodBox {
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+    width: 15rem;
+    padding: 1rem;
+}
+
+.foodBox:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+.foodImage {
+    width: 100%;
+}
