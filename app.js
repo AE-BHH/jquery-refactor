@@ -1,56 +1,56 @@
 $(document).ready(() => {
 	// Sol's comment
-    const importantInfoArray = [
-			{
-				name: 'kabob',
-				inStock: 6,
-				price: 11.5,
-				details: ['rice', 'salad', 'bread', 'yogurt'],
-				imgUrl:
-					'https://www.foodologygeek.com/wp-content/uploads/2022/08/grilled-beef-shish-kabobs-recipe.jpg',
-			},
-			{
-				name: 'manto',
-				inStock: 3,
-				price: 7.25,
-				details: [],
-				imgUrl: 'https://i.ytimg.com/vi/tkZl5Ydu0Cs/maxresdefault.jpg',
-			},
-			{
-				name: 'qabuli',
-				inStock: 5,
-				price: 16.8,
-				details: ['salad', 'chilis', 'bread'],
-				imgUrl:
-					'https://static.wixstatic.com/media/4c1904_b6f4bfa9a8224d77b588fd5d6f2036bd~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4c1904_b6f4bfa9a8224d77b588fd5d6f2036bd~mv2.jpg',
-			},
-			{
-				name: 'bolani',
-				inStock: 4,
-				price: 4.5,
-				details: ['chutney'],
-				imgUrl:
-					'https://www.sandyathome.com/wp-content/uploads/2016/07/IMG_5855.jpg',
-			},
-			{
-				name: 'bamya',
-				inStock: 0,
-				price: 12.0,
-				details: ['chutney'],
-				imgUrl:
-					'https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/f210b7df-a4a1-4476-a8e7-7781753e395b/Derivates/c4232d90-e880-44c9-b889-edc83ab64d22.jpg',
-			},
-			{
-				name: 'karahi',
-				inStock: 11,
-				price: 15.5,
-				details: ['rice', 'bread', 'yogurt'],
-				imgUrl:
-					'https://recipe52.com/wp-content/uploads/2018/04/Chicken-Karahi-Recipe-Pakistani-1-of-1.jpg',
-			},
-		]
+	const importantInfoArray = [
+		{
+			name: 'kabob',
+			inStock: 6,
+			price: 11.5,
+			details: ['rice', 'salad', 'bread', 'yogurt'],
+			imgUrl:
+				'https://www.foodologygeek.com/wp-content/uploads/2022/08/grilled-beef-shish-kabobs-recipe.jpg',
+		},
+		{
+			name: 'manto',
+			inStock: 3,
+			price: 7.25,
+			details: [],
+			imgUrl: 'https://i.ytimg.com/vi/tkZl5Ydu0Cs/maxresdefault.jpg',
+		},
+		{
+			name: 'qabuli',
+			inStock: 5,
+			price: 16.8,
+			details: ['salad', 'chilis', 'bread'],
+			imgUrl:
+				'https://static.wixstatic.com/media/4c1904_b6f4bfa9a8224d77b588fd5d6f2036bd~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/4c1904_b6f4bfa9a8224d77b588fd5d6f2036bd~mv2.jpg',
+		},
+		{
+			name: 'bolani',
+			inStock: 4,
+			price: 4.5,
+			details: ['chutney'],
+			imgUrl:
+				'https://www.sandyathome.com/wp-content/uploads/2016/07/IMG_5855.jpg',
+		},
+		{
+			name: 'bamya',
+			inStock: 0,
+			price: 12.0,
+			details: ['chutney'],
+			imgUrl:
+				'https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/f210b7df-a4a1-4476-a8e7-7781753e395b/Derivates/c4232d90-e880-44c9-b889-edc83ab64d22.jpg',
+		},
+		{
+			name: 'karahi',
+			inStock: 11,
+			price: 15.5,
+			details: ['rice', 'bread', 'yogurt'],
+			imgUrl:
+				'https://recipe52.com/wp-content/uploads/2018/04/Chicken-Karahi-Recipe-Pakistani-1-of-1.jpg',
+		},
+	]
 
-    const foods = [
+    const foodsArr = [
 			{
 				name: 'kabob',
 				counter: 0
@@ -133,7 +133,7 @@ $(document).ready(() => {
 			
 			checkerInfo();
 	
-				foods.forEach(food => {
+				foodsArr.forEach(food => {
 					const foodCounter = $(`<div></div>`).attr('id', `${food.name}`).text(`${food.name}: ${food.counter}`);
 					
 					$orderSummary.append(foodCounter);
@@ -162,7 +162,7 @@ $(document).ready(() => {
 							importantInfoArray[foodSetIndex].inStock = foodSetObj.inStock - 1; 
 							totalPrice += foodSetObj.price;
 							$totalElement.text(`Total price: $${totalPrice.toFixed(2)}`);
-							let counter = foods[foodSetIndex].counter += 1;
+							let counter = foodsArr[foodSetIndex].counter += 1;
 							$(`#${foodSetObj.name}`).text(`${foodSetObj.name}: ${counter}`);
 						} else {
 							alert(`We are all sold out of ${foodSetObj.name}`);
@@ -174,11 +174,11 @@ $(document).ready(() => {
 				function $getRemoveButton(foodSetObj, foodSetIndex) {
 					return $("<button class='btn button'>Remove Item</button>")
 					.on('click', () => {
-						if (foods[foodSetIndex].counter > 0) {
+						if (foodsArr[foodSetIndex].counter > 0) {
 							totalPrice -= foodSetObj.price;
 							foodSetObj.inStock += 1;
 							$totalElement.text(`Total price: $${Math.abs(totalPrice.toFixed(2))}`);
-							let counter = foods[foodSetIndex].counter -= 1;
+							let counter = foodsArr[foodSetIndex].counter -= 1;
 							$(`#${foodSetObj.name}`).text(`${foodSetObj.name}: ${counter}`);
 						} else {
 							alert(`You don't have any ${foodSetObj.name} left in your cart`);
