@@ -1,5 +1,5 @@
 $(document).ready(() => {
-	// Khati's comment
+	// Sol's comment
     const importantInfoArray = [
 			{
 				name: 'kabob',
@@ -50,7 +50,7 @@ $(document).ready(() => {
 			},
 		]
 
-    const foods = [
+    const foodsArr = [
 			{
 				name: 'kabob',
 				counter: 0
@@ -133,7 +133,7 @@ $(document).ready(() => {
 			
 			checkerInfo();
 	
-				foods.forEach(food => {
+				foodsArr.forEach(food => {
 					const foodCounter = $(`<div></div>`).attr('id', `${food.name}`).text(`${food.name}: ${food.counter}`);
 					
 					$orderSummary.append(foodCounter);
@@ -162,7 +162,7 @@ $(document).ready(() => {
 							importantInfoArray[foodSetIndex].inStock = foodSetObj.inStock - 1; 
 							totalPrice += foodSetObj.price;
 							$totalElement.text(`Total price: $${totalPrice.toFixed(2)}`);
-							let counter = foods[foodSetIndex].counter += 1;
+							let counter = foodsArr[foodSetIndex].counter += 1;
 							$(`#${foodSetObj.name}`).text(`${foodSetObj.name}: ${counter}`);
 						} else {
 							alert(`We are all sold out of ${foodSetObj.name}`);
@@ -174,11 +174,11 @@ $(document).ready(() => {
 				function $getRemoveButton(foodSetObj, foodSetIndex) {
 					return $("<button class='btn button'>Remove Item</button>")
 					.on('click', () => {
-						if (foods[foodSetIndex].counter > 0) {
+						if (foodsArr[foodSetIndex].counter > 0) {
 							totalPrice -= foodSetObj.price;
 							foodSetObj.inStock += 1;
 							$totalElement.text(`Total price: $${Math.abs(totalPrice.toFixed(2))}`);
-							let counter = foods[foodSetIndex].counter -= 1;
+							let counter = foodsArr[foodSetIndex].counter -= 1;
 							$(`#${foodSetObj.name}`).text(`${foodSetObj.name}: ${counter}`);
 						} else {
 							alert(`You don't have any ${foodSetObj.name} left in your cart`);
