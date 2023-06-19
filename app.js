@@ -131,9 +131,7 @@ $(document).ready(() => {
 			}
 			
 			checkerInfo();
-
-			
-				
+	
 				foods.forEach(food => {
 					const foodCounter = $(`<div></div>`).attr('id', `${food.name}`).text(`${food.name}: ${food.counter}`);
 					
