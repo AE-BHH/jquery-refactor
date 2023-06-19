@@ -1,5 +1,5 @@
 $(document).ready(() => {
-	// Sol's comment
+	// Khati's comment
     const importantInfoArray = [
 			{
 				name: 'kabob',
