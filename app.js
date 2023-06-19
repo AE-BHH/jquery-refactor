@@ -1,4 +1,5 @@
 $(document).ready(() => {
+	// Sol's comment
     const importantInfoArray = [
 			{
 				name: 'kabob',
